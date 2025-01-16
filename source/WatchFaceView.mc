@@ -71,18 +71,22 @@ class WatchFaceView extends WatchUi.WatchFace {
   }
   function drawTime(dc as Graphics.Dc, hour as Number, minute as Number) {
     dc.setColor(0x8a8e1b, Graphics.COLOR_BLACK);
+    var size = 22;
+    var hg = 3;
+    var p1 = 195-(size*5)-hg;
+    var p2 = 195+hg;
 
     // Draw hour (dc, number, x, y, size)
-    drawNumber(dc, (hour / 10 % 10), 50, 100, 10);  // Tens place of hour
-    drawNumber(dc, hour % 10, 105, 100, 10);       // Ones place of hour
+    drawNumber(dc, (hour / 10 % 10), p1, p1, size);  // Tens place of hour
+    drawNumber(dc, (hour % 10), p2, p1, size);       // Ones place of hour
 
     // Draw colon (optional)
     //dc.fillRectangle(120, 120, 5, 5);  // Colon dot 1
     //dc.fillRectangle(120, 140, 5, 5);  // Colon dot 2
 
     // Draw minute
-    drawNumber(dc, minute / 10 % 10, 50, 160, 10);  // Tens place of minute
-    drawNumber(dc, (minute % 10), 105, 160, 10);       // Ones place of minute
+    drawNumber(dc, (minute / 10 % 10), p1, p2, size);  // Tens place of minute
+    drawNumber(dc, (minute % 10), p2, p2, size);       // Ones place of minute
   }
 
   // Update the view
