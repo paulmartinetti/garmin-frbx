@@ -2,6 +2,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
+import Toybox.Time;
 
 // Define number representations (example for '0' and '1')
 var numberPatterns as Array = [
@@ -46,6 +47,8 @@ var numberPatterns as Array = [
     [ 1, 1, 1, 1, 1 ]
   ]
 ];
+
+var days as Array = ["","un", "deux", "trois"];
 
 var size = 22;
 var hg = 3;
@@ -93,23 +96,25 @@ class WatchFaceView extends WatchUi.WatchFace {
   // Update the view
   function onUpdate(dc as Dc) as Void {
     // Get and show the current time
-    var clockTime = System.getClockTime();
+    //var clockTime = System.getClockTime();
+    var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 
-    /*var timeString = Lang.format("$1$:$2$", [clockTime.hour,
-    clockTime.min.format("%02d")]); var view =
-    View.findDrawableById("TimeLabel") as Text; view.setText(timeString);
+    var dateString = "le " + Lang.format("$1$", [today.day]);
 
-    var fred = View.findDrawableById("Fred") as Text;
+    var view = View.findDrawableById("DateLabel") as Text; 
+    view.setText(dateString);
+
+    //var fred = View.findDrawableById("Fred") as Text;
 
     //var myw = View.getWidth() as Lang.Number;∏
-    fred.setText("Fred");
+    //fred.setText("Fred");
 
     // Call the parent onUpdate function to redraw the layout
-    View.onUpdate(dc);*/
+    View.onUpdate(dc);
 
     dc.clear();
 
-    drawTime(dc, clockTime.hour, clockTime.min);
+    drawTime(dc, today.hour, today.min);
   }
 
   // Called when this View is removed from the screen. Save the
