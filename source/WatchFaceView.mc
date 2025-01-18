@@ -101,7 +101,7 @@ class WatchFaceView extends WatchUi.WatchFace {
 
     var fred = View.findDrawableById("Fred") as Text;
 
-    //var myw = View.getWidth() as Lang.Number;
+    //var myw = View.getWidth() as Lang.Number;∏
     fred.setText("Fred");
 
     // Call the parent onUpdate function to redraw the layout
