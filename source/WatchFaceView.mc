@@ -48,12 +48,16 @@ var numberPatterns as Array = [
   ]
 ];
 
-var days as Array = ["","un", "deux", "trois"];
+var days as Array<String> = ["","un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", 
+"onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf", "vingt",
+"vingt-et-un", "vingt-deux", "vingt-trois", "vingt-quatre", "vingt-cinq", "vingt-six", "vingt-sept", 
+"vingt-huit", "vingt-neuf", "trente", "trente-et-un"];
 
-var size = 22;
+var size = 20;
 var hg = 3;
 var p1 = 195 - (size * 5) - hg;
 var p2 = 195 + hg;
+var ydif = 20;
 
 class WatchFaceView extends WatchUi.WatchFace {
   function initialize() { WatchFace.initialize(); }
@@ -81,33 +85,25 @@ class WatchFaceView extends WatchUi.WatchFace {
     dc.setColor(0x8a8e1b, Graphics.COLOR_BLACK);
 
     // Draw hour (dc, number, x, y, size)
-    drawNumber(dc, (hour / 10 % 10), p1, p1, size);  // Tens place of hour
-    drawNumber(dc, (hour % 10), p2, p1, size);       // Ones place of hour
-
-    // Draw colon (optional)
-    // dc.fillRectangle(120, 120, 5, 5);  // Colon dot 1
-    // dc.fillRectangle(120, 140, 5, 5);  // Colon dot 2
+    drawNumber(dc, (hour / 10 % 10), p1, p1 - ydif, size);  // Tens place of hour
+    drawNumber(dc, (hour % 10), p2, p1 - ydif, size);       // Ones place of hour
 
     // Draw minute
-    drawNumber(dc, (minute / 10 % 10), p1, p2, size);  // Tens place of minute
-    drawNumber(dc, (minute % 10), p2, p2, size);       // Ones place of minute
+    drawNumber(dc, (minute / 10 % 10), p1, p2 - ydif, size);  // Tens place of minute
+    drawNumber(dc, (minute % 10), p2, p2 - ydif, size);       // Ones place of minute
   }
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
     // Get and show the current time
     //var clockTime = System.getClockTime();
+    
+    // get date
     var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 
-    var dateString = "le " + Lang.format("$1$", [today.day]);
-
+    var dateString = "le " + days[today.day];
     var view = View.findDrawableById("DateLabel") as Text; 
     view.setText(dateString);
-
-    //var fred = View.findDrawableById("Fred") as Text;
-
-    //var myw = View.getWidth() as Lang.Number;∏
-    //fred.setText("Fred");
 
     // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
