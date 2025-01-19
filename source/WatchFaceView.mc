@@ -115,16 +115,16 @@ class WatchFaceView extends WatchUi.WatchFace {
 
     // get date
     var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
-    //var dateString = "le " + days[today.day];
 
-    //var view = View.findDrawableById("LauncherIcon") as bit;
+    //var view = View.findDrawableById("N"+today.day);
     // view.setText(dateString);
     // View.onUpdate(dc);
 
     
     dc.clear();
-
-    var image = Application.loadResource( Rez.Drawables.N19) as BitmapResource;
+    
+    var t =  [Rez.Drawables.N19];
+    var image = Application.loadResource(t[0]) as BitmapResource;
     // launcher_icon.png is 30x30 px
     // white-square is 70x70 but is being expanded
     dc.drawBitmap( 195, 290, image );
