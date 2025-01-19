@@ -1,5 +1,34 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-    <bitmap id="WhiteSquare" filename="white-square.png" />
+    <bitmap id="N1" filename="N1.png" />
+    <bitmap id="N2" filename="N2.png" />
+    <bitmap id="N3" filename="N3.png" />
+    <bitmap id="N4" filename="N4.png" />
+    <bitmap id="N5" filename="N5.png" />
+    <bitmap id="N6" filename="N6.png" />
+    <bitmap id="N7" filename="N7.png" />
+    <bitmap id="N8" filename="N8.png" />
+    <bitmap id="N9" filename="N9.png" />
+    <bitmap id="N10" filename="N10.png" />
+    <bitmap id="N11" filename="N11.png" />
+    <bitmap id="N12" filename="N12.png" />
+    <bitmap id="N13" filename="N13.png" />
+    <bitmap id="N14" filename="N14.png" />
+    <bitmap id="N15" filename="N15.png" />
+    <bitmap id="N16" filename="N16.png" />
+    <bitmap id="N17" filename="N17.png" />
+    <bitmap id="N18" filename="N18.png" />
     <bitmap id="N19" filename="N19.png" />
+    <bitmap id="N20" filename="N20.png" />
+    <bitmap id="N21" filename="N21.png" />
+    <bitmap id="N22" filename="N22.png" />
+    <bitmap id="N23" filename="N23.png" />
+    <bitmap id="N24" filename="N24.png" />
+    <bitmap id="N25" filename="N25.png" />
+    <bitmap id="N26" filename="N26.png" />
+    <bitmap id="N27" filename="N27.png" />
+    <bitmap id="N28" filename="N28.png" />
+    <bitmap id="N29" filename="N29.png" />
+    <bitmap id="N30" filename="N30.png" />
+    <bitmap id="N31" filename="N31.png" />
 </drawables>

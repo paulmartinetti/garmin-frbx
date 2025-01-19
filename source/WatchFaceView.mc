@@ -124,11 +124,44 @@ class WatchFaceView extends WatchUi.WatchFace {
 
     dc.clear();
 
-    var t = [Rez.Drawables.N19];
-    var image = Application.loadResource(t[0]) as BitmapResource;
+    var jourA = [
+      0,
+      Rez.Drawables.N1,
+      Rez.Drawables.N2,
+      Rez.Drawables.N3,
+      Rez.Drawables.N4,
+      Rez.Drawables.N5,
+      Rez.Drawables.N6,
+      Rez.Drawables.N7,
+      Rez.Drawables.N8,
+      Rez.Drawables.N9,
+      Rez.Drawables.N10,
+      Rez.Drawables.N11,
+      Rez.Drawables.N12,
+      Rez.Drawables.N13,
+      Rez.Drawables.N14,
+      Rez.Drawables.N15,
+      Rez.Drawables.N16,
+      Rez.Drawables.N17,
+      Rez.Drawables.N18,
+      Rez.Drawables.N19,
+      Rez.Drawables.N20,
+      Rez.Drawables.N21,
+      Rez.Drawables.N22,
+      Rez.Drawables.N23,
+      Rez.Drawables.N24,
+      Rez.Drawables.N25,
+      Rez.Drawables.N26,
+      Rez.Drawables.N27,
+      Rez.Drawables.N28,
+      Rez.Drawables.N29,
+      Rez.Drawables.N30,
+      Rez.Drawables.N31
+    ];
+    var image = Application.loadResource(jourA[today.day]) as BitmapResource;
     // launcher_icon.png is 30x30 px
     // white-square is 70x70 but is being expanded
-    var ix = 195-(image.getWidth()/2);
+    var ix = 195 - (image.getWidth() / 2);
     dc.drawBitmap(ix, 285, image);
 
     drawTime(dc, today.hour, today.min);
