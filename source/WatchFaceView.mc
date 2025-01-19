@@ -124,7 +124,7 @@ class WatchFaceView extends WatchUi.WatchFace {
     
     dc.clear();
 
-    var image = Application.loadResource( Rez.Drawables.WhiteSquare) as BitmapResource;
+    var image = Application.loadResource( Rez.Drawables.N19) as BitmapResource;
     // launcher_icon.png is 30x30 px
     // white-square is 70x70 but is being expanded
     dc.drawBitmap( 195, 290, image );
