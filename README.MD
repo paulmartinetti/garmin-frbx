@@ -3,7 +3,7 @@
 This is a Connect IQ, SDK 7.4.3, Garmin 390x390 watch face that resembles the clock on the Freebox Revolution, the wifi box for Free internet service in France, invented by French industrial designer Philippe Starck. 
 https://www.freenews.fr/freenews-edition-nationale-299/freebox-9/freebox-revolution-un-design-atypique-par-starck-9536
 
-The time is drawn using 5x5 square numbers and arrays.
+The time is drawn using 5x5 square numbers and arrays. <b>It is not animated!</b>
 
 It also displays the day of the month number in French words using, ultimately, pngs. The pngs were made in Adobe Illustrator, where I can easily use the Adobe font Mousse Script (font file not available), and exported to png.
 
