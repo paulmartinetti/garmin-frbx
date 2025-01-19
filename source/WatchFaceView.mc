@@ -49,18 +49,8 @@ class WatchFaceView extends WatchUi.WatchFace {
     ]
   ];
 
-  var days as Array<String> = [
-    "",           "un",          "deux",       "trois",       "quatre",
-    "cinq",       "six",         "sept",       "huit",        "neuf",
-    "dix",        "onze",        "douze",      "treize",      "quatorze",
-    "quinze",     "seize",       "dix-sept",   "dix-huit",    "dix-neuf",
-    "vingt",      "vingt-et-un", "vingt-deux", "vingt-trois", "vingt-quatre",
-    "vingt-cinq", "vingt-six",   "vingt-sept", "vingt-huit",  "vingt-neuf",
-    "trente",     "trente-et-un"
-  ];
-
   // size of one square (multiply by 5 for number width)
-  var size = 18;
+  var size = 20;
   // half gap
   var hg = 3;
   // points
@@ -68,7 +58,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   var p2 = 195 + hg;
 
   // move all up to allow text below
-  var ydif = 20;
+  var ydif = 25;
 
   // initial superclass, not the layout id
   function initialize() { WatchFace.initialize(); }
@@ -112,18 +102,13 @@ class WatchFaceView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    // Get and show the current time
-    // var clockTime = System.getClockTime();
-
-    // get date
+    // Get date and time
     var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 
-    // var view = View.findDrawableById("N"+today.day);
-    // view.setText(dateString);
-    // View.onUpdate(dc);
-
+    // clear screen to draw on
     dc.clear();
 
+    // untyped array of ResourceIds (unable to make dynamically using object[notation])
     var jourA = [
       0,
       Rez.Drawables.N1,
@@ -158,16 +143,17 @@ class WatchFaceView extends WatchUi.WatchFace {
       Rez.Drawables.N30,
       Rez.Drawables.N31
     ];
+
+    // load jour as png based on day
+    //var image = Application.loadResource(Rez.Drawables.N24) as BitmapResource;
+    //System.println(image.getWidth());
     var image = Application.loadResource(jourA[today.day]) as BitmapResource;
-    // launcher_icon.png is 30x30 px
-    // white-square is 70x70 but is being expanded
+    // set jour x based on its width
     var ix = 195 - (image.getWidth() / 2);
+    // draw jour
     dc.drawBitmap(ix, 285, image);
-
+    // draw time
     drawTime(dc, today.hour, today.min);
-
-    // dc.setColor(0x8a8e1b);
-    // dc.drawText(dateString, mousse, Graphics.TEXT_JUSTIFY_CENTER, 195, 290);
   }
 
   // Called when this View is removed from the screen. Save the
