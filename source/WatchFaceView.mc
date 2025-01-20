@@ -1,3 +1,9 @@
+//
+// 
+// Whatever
+// 
+//
+
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
@@ -6,7 +12,7 @@ import Toybox.Time;
 
 class WatchFaceView extends WatchUi.WatchFace {
   // Define number representations (example for '0' and '1')
-  var numberPatterns as Array = [
+  private var numberPatterns as Array<Array> = [
     [
       [ 1, 1, 1, 1, 1 ], [ 1, 0, 0, 0, 1 ], [ 1, 0, 0, 0, 1 ],
       [ 1, 0, 0, 0, 1 ], [ 1, 1, 1, 1, 1 ]
@@ -49,23 +55,60 @@ class WatchFaceView extends WatchUi.WatchFace {
     ]
   ];
 
+  // untyped array of ResourceIds (unable to make dynamically using object[notation])
+  private var jourA as Array = [
+    0,
+    $.Rez.Drawables.N1,
+    $.Rez.Drawables.N2,
+    $.Rez.Drawables.N3,
+    $.Rez.Drawables.N4,
+    $.Rez.Drawables.N5,
+    $.Rez.Drawables.N6,
+    $.Rez.Drawables.N7,
+    $.Rez.Drawables.N8,
+    $.Rez.Drawables.N9,
+    $.Rez.Drawables.N10,
+    $.Rez.Drawables.N11,
+    $.Rez.Drawables.N12,
+    $.Rez.Drawables.N13,
+    $.Rez.Drawables.N14,
+    $.Rez.Drawables.N15,
+    $.Rez.Drawables.N16,
+    $.Rez.Drawables.N17,
+    $.Rez.Drawables.N18,
+    $.Rez.Drawables.N19,
+    $.Rez.Drawables.N20,
+    $.Rez.Drawables.N21,
+    $.Rez.Drawables.N22,
+    $.Rez.Drawables.N23,
+    $.Rez.Drawables.N24,
+    $.Rez.Drawables.N25,
+    $.Rez.Drawables.N26,
+    $.Rez.Drawables.N27,
+    $.Rez.Drawables.N28,
+    $.Rez.Drawables.N29,
+    $.Rez.Drawables.N30,
+    $.Rez.Drawables.N31
+  ];
+
+
   // size of one square (multiply by 5 for number width)
-  var size = 20;
+  private var size = 20;
   // half gap
-  var hg = 3;
+  private var hg = 3;
   // points
-  var p1 = 195 - (size * 5) - hg;
-  var p2 = 195 + hg;
+  private var p1 = 195 - (size * 5) - hg;
+  private var p2 = 195 + hg;
 
   // move all up to allow text below
-  var ydif = 25;
+  private var ydif = 25;
 
   // initial superclass, not the layout id
   function initialize() { WatchFace.initialize(); }
 
   // Load your resources here
   function onLayout(dc as Dc) as Void {}
-  // setLayout(Rez.Layouts.WatchFace(dc));
+  // setLayout($.Rez.Layouts.WatchFace(dc));
 
   // Called when this View is brought to the foreground. Restore
   // the state of this View and prepare it to be shown. This includes
@@ -108,44 +151,9 @@ class WatchFaceView extends WatchUi.WatchFace {
     // clear screen to draw on
     dc.clear();
 
-    // untyped array of ResourceIds (unable to make dynamically using object[notation])
-    var jourA = [
-      0,
-      Rez.Drawables.N1,
-      Rez.Drawables.N2,
-      Rez.Drawables.N3,
-      Rez.Drawables.N4,
-      Rez.Drawables.N5,
-      Rez.Drawables.N6,
-      Rez.Drawables.N7,
-      Rez.Drawables.N8,
-      Rez.Drawables.N9,
-      Rez.Drawables.N10,
-      Rez.Drawables.N11,
-      Rez.Drawables.N12,
-      Rez.Drawables.N13,
-      Rez.Drawables.N14,
-      Rez.Drawables.N15,
-      Rez.Drawables.N16,
-      Rez.Drawables.N17,
-      Rez.Drawables.N18,
-      Rez.Drawables.N19,
-      Rez.Drawables.N20,
-      Rez.Drawables.N21,
-      Rez.Drawables.N22,
-      Rez.Drawables.N23,
-      Rez.Drawables.N24,
-      Rez.Drawables.N25,
-      Rez.Drawables.N26,
-      Rez.Drawables.N27,
-      Rez.Drawables.N28,
-      Rez.Drawables.N29,
-      Rez.Drawables.N30,
-      Rez.Drawables.N31
-    ];
-
+    
     // load jour as png based on day
-    //var image = Application.loadResource(Rez.Drawables.N24) as BitmapResource;
+    //var image = Application.loadResource($.Rez.Drawables.N24) as BitmapResource;
     //System.println(image.getWidth());
     var image = Application.loadResource(jourA[today.day]) as BitmapResource;
     // set jour x based on its width

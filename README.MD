@@ -14,8 +14,8 @@ https://developer.garmin.com/connect-iq/core-topics/resources/#fonts
 https://developer.garmin.com/connect-iq/connect-iq-faq/how-do-i-use-custom-fonts/#howdoiusecustomfonts
 
 </p><p>2. Dynamic loading of one png out of many in a drawables xml - this paragraph from ChatGPT is my experience:
-"In the Connect IQ SDK, when you define resources such as PNGs in the resources XML file (like your drawables XML), they are automatically compiled into the Rez class, with each resource accessible via its identifier, such as Rez.Drawables.OnePNG. However, there isn't a built-in method to dynamically access all resources like an iterable container directly from the SDK."
-...I did my own workaround (see source/WatchFaceView.mc)
+"In the Connect IQ SDK, when you define resources such as PNGs in the resources XML file (like your drawables XML), they are automatically compiled into the Rez class, with each resource accessible via its identifier, such as Rez. Drawables. OnePNG. However, there isn't a built-in method to dynamically access all resources like an iterable container directly from the SDK."
+... I did my own workaround (see source/WatchFaceView.mc)
 </p><p>More links<br>
 https://developer.garmin.com/connect-iq/core-topics/layouts/
 https://developer.garmin.com/connect-iq/api-docs/Toybox/Graphics.html
