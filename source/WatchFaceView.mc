@@ -95,7 +95,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   // size of one square (multiply by 5 for number width)
   private var size = 20;
   // half gap
-  private var hg = 3;
+  private var hg = 5;
   // points
   private var p1 = 195 - (size * 5) - hg;
   private var p2 = 195 + hg;
@@ -146,7 +146,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   // Update the view
   function onUpdate(dc as Dc) as Void {
     // Get date and time
-    var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+    var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
 
     // clear screen to draw on
     dc.clear();
