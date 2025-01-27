@@ -6,7 +6,7 @@
 
 import Toybox.Graphics;
 import Toybox.Lang;
-import Toybox.System;
+import Toybox.Application;
 import Toybox.WatchUi;
 import Toybox.Time;
 
