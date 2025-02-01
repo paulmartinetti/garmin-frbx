@@ -12,6 +12,7 @@ import Toybox.Time;
 
 class WatchFaceView extends WatchUi.WatchFace {
   // Define number representations (example for '0' and '1')
+  // Numbers are 5x5 squares
   private var numberPatterns as Array<Array> = [
     [
       [ 1, 1, 1, 1, 1 ], [ 1, 0, 0, 0, 1 ], [ 1, 0, 0, 0, 1 ],
@@ -56,6 +57,8 @@ class WatchFaceView extends WatchUi.WatchFace {
   ];
 
   // untyped array of ResourceIds (unable to make dynamically using object[notation])
+  // Toybox requires that a list of the actual names be used
+  // This represents one png for each day of the month
   private var jourA as Array = [
     0,
     $.Rez.Drawables.N1,
@@ -96,7 +99,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   private var size = 20;
   // half gap
   private var hg = 5;
-  // points
+  // points - x and y coordinates of the 4 numbers of the time
   private var p1 = 195 - (size * 5) - hg;
   private var p2 = 195 + hg;
 
@@ -115,6 +118,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   // loading resources into memory.
   function onShow() as Void {}
 
+  // this function runs through the number patterns to actually draw and place the squares
   function drawNumber(dc as Graphics.Dc, number as Number, x as Number,
                       y as Number, size as Number) {
     var pattern = numberPatterns[number] as Array<Array>;
@@ -126,6 +130,7 @@ class WatchFaceView extends WatchUi.WatchFace {
       }
     }
   }
+  // this function accepts the hour and minutes as 4 separate numbers to draw
   function drawTime(dc as Graphics.Dc, hour as Number, minute as Number) {
     // Adobe - font size 30, mousse script, export png x 1
     dc.setColor(0x8a8e1b, Graphics.COLOR_BLACK);
@@ -145,7 +150,7 @@ class WatchFaceView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    // Get date and time
+    // Get date and time every minute
     var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
 
     // clear screen to draw on
@@ -160,6 +165,7 @@ class WatchFaceView extends WatchUi.WatchFace {
     var ix = 195 - (image.getWidth() / 2);
     // draw jour
     dc.drawBitmap(ix, 285, image);
+    
     // draw time
     drawTime(dc, today.hour, today.min);
   }
